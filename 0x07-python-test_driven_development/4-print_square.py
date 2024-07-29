@@ -2,6 +2,7 @@
 
 """Module that contains functions for text indentation"""
 
+
 def print_square(size):
     """prints a square with "#"'s that has a length of size """
     if type(size) is not int:
@@ -9,5 +10,4 @@ def print_square(size):
     if size < 0:
         raise ValueError("size must be >= 0")
     if size > 0:
-        for _ in range(size):
-            print("#" * size)
+        print(("#" * size + "\n") * size, end="")
