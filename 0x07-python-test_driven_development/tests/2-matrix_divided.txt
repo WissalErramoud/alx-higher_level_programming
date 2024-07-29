@@ -1,37 +1,99 @@
-#!/usr/bin/python3
-"""Module for matrix_divided method."""
 
+# Test case 1: Valid matrix with integer division
+matrix = [
+    [3, 6, 9],
+    [12, 15, 18]
+]
+div = 3
+expected = [
+    [1.0, 2.0, 3.0],
+    [4.0, 5.0, 6.0]
+]
 
-def matrix_divided(matrix, div):
-    """Divides all elements of matrix by div.
-    Args:
-        matrix: List of lists containing int or float
-        div: number to divide matrix by
-    Returns:
-        list: List of lists representing divided matrix.
-    Raises:
-        TypeError: If matrix is not list of lists containing int or float.
-        TypeError: If sublists are not all same size.
-        TypeError: If div is not int or float.
-        ZeroDivisionError: If div is zero.
-    """
-    if not isinstance(div, (int, float)):
-        raise TypeError("div must be a number")
-    if not isinstance(matrix, list) or len(matrix) == 0:
-        raise TypeError("matrix must be a matrix (list of lists) " +
-                        "of integers/floats")
-    for row in matrix:
-        if not isinstance(row, list) or len(row) == 0:
-            raise TypeError("matrix must be a matrix (list of lists) " +
-                            "of integers/floats")
-        if len(row) != len(matrix[0]):
-            raise TypeError("Each row of the matrix must have the same size")
-        for x in row:
-            if not isinstance(x, (int, float)):
-                raise TypeError("matrix must be a matrix (list of lists) " +
-                                "of integers/floats")
-    return [[round(x / div, 2) for x in row] for row in matrix]
+# Test case 2: Valid matrix with float division
+matrix = [
+    [1.1, -2.2, 3.3],
+    [4.4, 5.5, -6.6]
+]
+div = 3.0
+expected = [
+    [0.37, -0.73, 1.1],
+    [1.47, 1.83, -2.2]
+]
 
-if __name__ == "__main__":
-    import doctest
-    doctest.testfile("tests/2-matrix_divided.txt")
+# Test case 3: Valid matrix with mixed integers and floats
+matrix = [
+    [1, -2.2, 3, 4.4, 5],
+    [-6.6, 7.00, 8, 9.999, 10]
+]
+div = 3
+expected = [
+    [0.33, -0.73, 1.0, 1.47, 1.67],
+    [-2.2, 2.33, 2.67, 3.33, 3.33]
+]
+
+# Test case 4: Empty list of lists (valid edge case)
+matrix = [[]]
+div = 3
+expected = [[]]
+
+# Test case 5: Non-list matrix (invalid)
+matrix = "not a list"
+div = 3
+raises = TypeError
+
+# Test case 6: None as matrix (invalid)
+matrix = None
+div = 3
+raises = TypeError
+
+# Test case 7: Empty list (invalid)
+matrix = []
+div = 3
+raises = TypeError
+
+# Test case 8: List of non-lists (invalid)
+matrix = [1, 2, 3]
+div = 3
+raises = TypeError
+
+# Test case 9: Matrix with non-numeric value (invalid)
+matrix = [
+    [1, 2, 3],
+    [4, "not a number", 6]
+]
+div = 3
+raises = TypeError
+
+# Test case 10: Rows of different sizes (invalid)
+matrix = [
+    [1, 2, 3, 4],
+    [5, 6, 7]
+]
+div = 3
+raises = TypeError
+
+# Test case 11: Divisor is not a number (invalid)
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6]
+]
+div = "not a number"
+raises = TypeError
+
+# Test case 12: Divisor is None (invalid)
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6]
+]
+div = None
+raises = TypeError
+
+# Test case 13: Divisor is zero (invalid)
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6]
+]
+div = 0
+raises = ZeroDivisionError
+
