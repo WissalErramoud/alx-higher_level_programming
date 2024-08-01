@@ -1,21 +1,15 @@
 #!/usr/bin/python3
-""" creating a class """
+'''Module for BaseGeometry class.'''
 
 
 class BaseGeometry:
-    """
-    BaseGeometry class
-    """
+    '''A BaseGeometry class.'''
     def area(self):
-        """
-        area method
-        """
-        raise Exception("area() is not implemented")
+        '''Method to compute this area.'''
+        raise Exception('area() is not implemented')
 
     def integer_validator(self, name, value):
-        """
-        integer_validator method
-        """
+        '''Method for validating the value.'''
         if type(value) != int:
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
