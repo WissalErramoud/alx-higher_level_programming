@@ -10,15 +10,17 @@ class Square(Rectangle):
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
-        # Overload the __str__ method to return [Square] (<id>) <x>/<y> - <size>
+        """ Overload the __str__ method to return [Square] (<id>) <x>/<y> -
+        <size>"""
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
 
-    # Optionally, if you want to have a getter and setter for 'size' to interact more directly
     @property
+    """Getting size of square"""
     def size(self):
         return self.width
 
     @size.setter
+    """Setting size of square"""
     def size(self, value):
         self.width = value
         self.height = value
