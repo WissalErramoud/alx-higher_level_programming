@@ -11,16 +11,16 @@ class Square(Rectangle):
 
     def __str__(self):
         """Printing square class by overloading __str__ method"""
-        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
+        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y,
+                                                 self.width)
 
     @property
-    """Getting size of square"""
     def size(self):
+        """Getting size of square"""
         return self.width
 
     @size.setter
-    """Setting size of square"""
     def size(self, value):
+        """Setting size of square"""
         self.width = value
         self.height = value
-
