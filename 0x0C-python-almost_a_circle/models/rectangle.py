@@ -78,7 +78,7 @@ class Rectangle(Base):
         return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}".format(
             self.id, self.x, self.y, self.width, self.height)
 
-     def display(self):
+    def display(self):
         """Printing the rectangle in stdout"""
         for i in range(self.y):
             print()
