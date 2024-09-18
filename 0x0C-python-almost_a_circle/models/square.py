@@ -2,16 +2,15 @@
 """Creating a square class"""
 from models.rectangle import Rectangle
 
+
 class Square(Rectangle):
     """Defining square class"""
     def __init__(self, size, x=0, y=0, id=None):
-        """ Call the super class (Rectangle) with size as both width and
-        height"""
+        """Initializing square class"""
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
-        """ Overload the __str__ method to return [Square] (<id>) <x>/<y> -
-        <size>"""
+        """Printing square class by overloading __str__ method"""
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
 
     @property
