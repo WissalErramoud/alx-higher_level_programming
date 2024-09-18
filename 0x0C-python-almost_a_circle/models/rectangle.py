@@ -85,7 +85,6 @@ class Rectangle(Base):
         for i in range(self.height):
             print(" " * self.x + "#" * self.width)
 
-
     def update(self, *args):
         """Updating the rectangle"""
         if len(args) >= 1:
