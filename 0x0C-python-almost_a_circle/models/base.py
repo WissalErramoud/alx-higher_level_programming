@@ -23,7 +23,7 @@ class Base:
         """Returning json string representation of list of dictionaries"""
         if list_dictionaries is None or list_dictionaries == []:
             return "[]"
-        if (type(list_dictionaries) != list or
+        if (type(list_dictionaries) is not list or
            not all(type(x) == dict for x in list_dictionaries)):
             raise TypeError("list_dictionaries must be a list of dictionaries")
         return json.dumps(list_dictionaries)
@@ -31,7 +31,7 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         """Saving list of objects to file"""
-        if (type(list_objs) != list and
+        if (type(list_objs) is not list and
            list_objs is not None or
            not all(isinstance(x, cls) for x in list_objs)):
             raise TypeError("list_objs must be a list of instances")
@@ -95,7 +95,7 @@ class Base:
         """Returns the list of the JSON string representation json_string."""
         new_len = []
         if json_string is not None and json_string != '':
-            if type(json_string) != str:
+            if type(json_string) is not str:
                 raise TypeError("json_string must be a string")
             new_len = json.loads(json_string)
         return new_len
@@ -129,7 +129,7 @@ class Base:
     def save_to_file_csv(cls, list_objs):
         """Serializes list_objs in CSV format and saves it to a file."""
 
-        if (type(list_objs) != list and
+        if (type(list_objs) is not list and
            list_objs is not None or
            not all(isinstance(x, cls) for x in list_objs)):
             raise TypeError("list_objs must be a list of instances")
