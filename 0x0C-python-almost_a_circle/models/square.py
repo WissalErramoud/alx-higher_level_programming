@@ -1,10 +1,12 @@
 #!/usr/bin/python3
-
+"""Creating a square class"""
 from models.rectangle import Rectangle
 
 class Square(Rectangle):
+    """Defining square class"""
     def __init__(self, size, x=0, y=0, id=None):
-        # Call the super class (Rectangle) with size as both width and height
+        """ Call the super class (Rectangle) with size as both width and
+        height"""
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
